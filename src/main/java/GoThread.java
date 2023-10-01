@@ -3,8 +3,8 @@ public class GoThread extends Thread{
     // що минув від моменту запуску програми.
     //
     //Другий потік цієї ж програми кожні 5 секунд виводить повідомлення Минуло 5 секунд.
-    static int time, worktime = 20;
-
+    private static int time;
+    public static int workTime;
 
     static class SecRunnable implements Runnable{
 
@@ -12,7 +12,7 @@ public class GoThread extends Thread{
         public void run() {
             System.out.println("Time has passed");
             try {
-                while (time<worktime) {
+                while (time<workTime) {
                     Thread.sleep(1000);
                     System.out.println((++time) + " sec");
                 }
@@ -27,7 +27,7 @@ public class GoThread extends Thread{
         @Override
         public void run() {
             try {
-                while (time < worktime-1) {
+                while (time < workTime-1) {
                     Thread.sleep(5000);
                     System.out.print("Five second have passed: ");
                }
